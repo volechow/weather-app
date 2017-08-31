@@ -35,19 +35,6 @@ function getWeatherByPosition(position) {
 	});
 }
 
-function getWeatherByLocation(location) {
-	var appid = "a483f5ce818a715e9a60890e8a197dfe";
-	var locationURL = "http://api.openweathermap.org/data/2.5/weather?q="+location+"&appid="+appid;
-	
-	$.ajax({
-		type: 'GET',
-		url: locationURL,
-		success: function(data) {
-			showWeather(data);
-		}
-	});
-}
-
 
 $( document ).ready(function() {
 
@@ -68,26 +55,5 @@ $( document ).ready(function() {
 			temp = convertToFahrenheit(temp);
 			showTemperature(temp, "Fahrenheit");
 		}
-	});
-
-	$("#search-btn").click(function() {
-		var query;
-		query = $("#search").val();
-		console.log(query);
-		getWeatherByLocation(query);
-	});
-
-	
-	$("#search").keypress(function(e) {
-		if(e.which == 13) {
-			var query;
-			query = $("#search").val();
-			console.log(query);
-			getWeatherByLocation(query);
-		}
-	});
-
-	$("#current-btn").click(function() {
-        navigator.geolocation.getCurrentPosition(getWeatherByPosition);
 	});
 });
