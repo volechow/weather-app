@@ -15,10 +15,10 @@ function convertToCelsius(temp) {
 }
 
 function showWeather(data) {
-	$('#temperature').text(showTemperature(data.main.temp, "Celsius"))
-	$('#weather').text(data.weather[0].description)
-	$('#location').text(data.base)
-	$('#weather-icon').html('<img src="'+data.weather[0].icon+'">')
+	$('#temperature').text(showTemperature(data.main.temp, "Celsius"));
+	$('#weather').text(data.weather[0].description);
+	$('#location').text(data.name);
+	$('#weather-icon').html('<img src="'+data.weather[0].icon+'">');
 }
 
 function getWeatherByPosition(position) {
